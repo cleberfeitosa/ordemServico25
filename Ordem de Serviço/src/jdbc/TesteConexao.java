@@ -19,7 +19,7 @@ public class TesteConexao {
             
 
         } catch (Exception erro) {
-             JOptionPane.showMessageDialog(null, "Ops aconteceu o erro: "  + erro);    
+            
         }
     }
     
