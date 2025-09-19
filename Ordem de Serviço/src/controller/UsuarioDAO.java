@@ -19,10 +19,10 @@ import view.TelaPrincipal;
  */
 public class UsuarioDAO {
     
-    private Connection con;
+    private Connection conexao;
     
     public UsuarioDAO(){
-        this.con = ModuloConexao.conectar();
+        this.conexao = ModuloConexao.conectar();
     }
     
     //Metodo efetuaLogin
@@ -33,7 +33,7 @@ public class UsuarioDAO {
             //1 passo - SQL
             String sql = "select * from tbusuarios where usuario = ? and senha = ?";
             PreparedStatement stmt;
-            stmt = con.prepareStatement(sql);
+            stmt = conexao.prepareStatement(sql);
             stmt.setString(1, email);
             stmt.setString(2, senha);
 
@@ -55,6 +55,7 @@ public class UsuarioDAO {
         }
 
     }
+    
     
     
 }

@@ -28,6 +28,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMnCadastro = new javax.swing.JMenu();
         jMnItmCliente = new javax.swing.JMenuItem();
@@ -42,6 +43,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Gestão de Ordem de Serviço");
 
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 751, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+
         jMnCadastro.setMnemonic('c');
         jMnCadastro.setText("Cadastro");
 
@@ -55,6 +67,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         JMnItmUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         JMnItmUsuario.setText("Usuário");
+        JMnItmUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMnItmUsuarioActionPerformed(evt);
+            }
+        });
         jMnCadastro.add(JMnItmUsuario);
 
         jMenuBar1.add(jMnCadastro);
@@ -74,6 +91,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMnSobre.setMnemonic('s');
         jMnSobre.setText("Sobre");
+        jMnSobre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMnSobreMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMnSobre);
 
         jMnSair.setMnemonic('i');
@@ -91,11 +113,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 921, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 170, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 37, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,10 +131,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMnSairMouseClicked
         int resp;
         resp = JOptionPane.showConfirmDialog(null, "Deseja realmente sair do Sistema?", "Atenção",JOptionPane.YES_NO_OPTION);
-        if(resp == JOptionPane.YES_OPTION){
+                if(resp == JOptionPane.YES_OPTION){
             System.exit(0);
         }
     }//GEN-LAST:event_jMnSairMouseClicked
+
+    private void jMnSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMnSobreMouseClicked
+        TelaSobre sobre = new TelaSobre();
+        sobre.setVisible(true);
+    }//GEN-LAST:event_jMnSobreMouseClicked
+
+    private void JMnItmUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMnItmUsuarioActionPerformed
+        TelaUsuario usuario = new TelaUsuario();
+        usuario.setVisible(true);
+        jDesktopPane1.add(usuario);
+    }//GEN-LAST:event_JMnItmUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,6 +184,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem JMnItmUsuario;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMnCadastro;
     private javax.swing.JMenuItem jMnItmCliente;
